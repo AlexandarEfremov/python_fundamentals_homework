@@ -30,7 +30,7 @@ while True:
         replace_list = command_input.split(" ")
         new_gift = replace_list[1]
         replace_index = int(replace_list[2])
-        if replace_index < len(gifts_input_line):
+        if 0 <= replace_index < len(gifts_input_line):
             gifts_input_line[replace_index] = new_gift
     elif "JustInCase" in command_input:
         replace_list = command_input.split(" ")
