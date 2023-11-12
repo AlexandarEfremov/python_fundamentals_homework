@@ -18,16 +18,13 @@ while True:
         force_user, force_side = input_info.split(" -> ")
         for side, users in force_dict.items():
             if force_user in users:
-                users.pop(users.index(force_user))
+                users.remove(force_user)
                 break
-        force_dict[force_side].append(force_user)
+        force_dict.setdefault(force_side, []).append(force_user)
         print(f"{force_user} joins the {force_side} side!")
-
 
 for side, users in force_dict.items():
     if len(users) > 0:
         print(f"Side: {side}, Members: {len(users)}")
-    for user in users:
-        print(f"! {user}")
-
-
+        for user in users:
+            print(f"! {user}")
