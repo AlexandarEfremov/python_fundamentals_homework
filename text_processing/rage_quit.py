@@ -15,13 +15,24 @@ final_string = ""
 temp_string = ""
 uniq_symb = []
 
-for letter in input_data:
-    if not letter.isdigit():
-        temp_string += letter.upper()
-        if letter.lower() not in uniq_symb:
-            uniq_symb.append(letter.lower())
+
+def is_digit(char):
+    return char.isdigit()
+
+
+for i, char in enumerate(input_data):
+    if not is_digit(char):
+        temp_string += char.upper()
+        if char.lower() not in uniq_symb:
+            uniq_symb.append(char.lower())
     else:
-        multi_value = temp_string * int(letter)
+        # Check for multi-digit numbers
+        j = i + 1
+        while j < len(input_data) and is_digit(input_data[j]):
+            char += input_data[j]
+            j += 1
+
+        multi_value = temp_string * int(char)
         temp_string = multi_value
         final_string += temp_string
         temp_string = ""
