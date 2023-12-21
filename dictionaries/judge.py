@@ -32,7 +32,7 @@ for key, value in user_dict[contest_d].items():
     len_of_users = len(value)
     print(f"{key}: {len_of_users} participants")
     for position, (name, points) in enumerate(
-            sorted(user_dict[contest_d][key].items(), key=lambda item: (-item[1], item[0])), 1):
+            sorted(user_dict[contest_d][key].items(), key=lambda item: (-item[1], item[0]))):
         print(f"{position}. {name} <::> {points}")
 
 print("Individual standings:")
